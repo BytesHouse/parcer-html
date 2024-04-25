@@ -21,7 +21,7 @@ app.get('/', async (req, res) => {
         // Собираем все тексты, которые содержатся в элементах, исправляем на более универсальный селектор
         $('body').find('*').each(function() {
             const text = $(this).contents().filter(function() {
-                return this.type === 'text' && $.trim(this.data).length > 0;
+                return this.type === 'text' && this.data.trim().length > 0;
             }).text().trim();
 
             if (text.length > 0) {
